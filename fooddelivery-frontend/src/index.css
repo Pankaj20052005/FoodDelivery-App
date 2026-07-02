@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+
+@theme {
+  --color-cream: #fbf3e3;
+  --color-ink: #19140f;
+  --color-chili: #ff5a36;
+  --color-mango: #ffc23d;
+  --color-basil: #2f6b4f;
+  --color-grape: #6f4fe0;
+  --font-display: "Archivo Black", "Arial Black", sans-serif;
+  --font-grotesk: "Space Grotesk", sans-serif;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50% { transform: translateY(-12px) rotate(var(--rot, 0deg)); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-grotesk);
+}
+
+/* Neo-Brutalist Utility Classes */
+@utility neo-card {
+  background-color: white;
+  border: 4px solid var(--color-ink);
+  box-shadow: 6px 6px 0px 0px var(--color-ink);
+  border-radius: 1rem;
+}
+
+@utility neo-card-flat {
+  background-color: white;
+  border: 4px solid var(--color-ink);
+  border-radius: 1rem;
+}
+
+@utility neo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: var(--font-grotesk);
+  border: 3px solid var(--color-ink);
+  box-shadow: 3px 3px 0px 0px var(--color-ink);
+  border-radius: 0.75rem;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px 0px var(--color-ink);
+  }
+}
+
+@utility neo-btn-chili {
+  background-color: var(--color-chili);
+  color: white;
+
+  &:hover {
+    background-color: #ff471a;
+  }
+}
+
+@utility neo-btn-mango {
+  background-color: var(--color-mango);
+  color: var(--color-ink);
+
+  &:hover {
+    background-color: #ffb71a;
+  }
+}
+
+@utility neo-btn-grape {
+  background-color: var(--color-grape);
+  color: white;
+
+  &:hover {
+    background-color: #5c3ecf;
+  }
+}
+
+@utility neo-btn-basil {
+  background-color: var(--color-basil);
+  color: white;
+
+  &:hover {
+    background-color: #24523c;
+  }
+}
+
+@utility neo-btn-white {
+  background-color: white;
+  color: var(--color-ink);
+
+  &:hover {
+    background-color: #f3f3f3;
+  }
+}
